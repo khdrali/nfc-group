@@ -1,16 +1,26 @@
+"use client";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const Brands: React.FC = () => {
   const brands = [
-    { name: "NIKE", href: "#" },
-    { name: "ADIDAS", href: "#" },
-    { name: "PUMA", href: "#" },
-    { name: "ONITSUKA TIGER", href: "#" },
-    { name: "NEW BALANCE", href: "#" },
-    { name: "HOKA", href: "#" },
-    { name: "ON", href: "#" },
-    { name: "ASICS", href: "#" },
+    { name: "NIKE", href: "#", logo: "/assets/logo/brands/logo-nike.webp" },
+    { name: "ADIDAS", href: "#", logo: "/assets/logo/brands/logo-adidas.webp" },
+    { name: "PUMA", href: "#", logo: "/assets/logo/brands/logo-puma.webp" },
+    {
+      name: "ONITSUKA TIGER",
+      href: "#",
+      logo: "/assets/logo/brands/logo-oj.webp",
+    },
+    {
+      name: "NEW BALANCE",
+      href: "#",
+      logo: "/assets/logo/brands/logo-nike.webp",
+    },
+    { name: "HOKA", href: "#", logo: "/assets/logo/brands/logo-hoka.webp" },
+    { name: "ON", href: "#", logo: "/assets/logo/brands/logo-on.webp" },
+    { name: "ASICS", href: "#", logo: "/assets/logo/brands/logo-asics.webp" },
   ];
 
   return (
@@ -35,6 +45,12 @@ const Brands: React.FC = () => {
               href={brand.href}
               className="brand-partner-card"
             >
+              <Image
+                src={brand?.logo}
+                alt={brand?.name}
+                width={140}
+                height={140}
+              />
               <span className="brand-partner-name">{brand.name}</span>
             </a>
           ))}
