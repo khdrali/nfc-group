@@ -6,8 +6,13 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-2">
-            <div className="bg-white text-red-600 px-3 py-1 font-extrabold text-2xl rounded inline-block mb-6">
-              NFC
+            <div className="inline-block mb-6">
+              <img
+                src="/assets/logo/transparent-image.png"
+                alt="Logo"
+                width={55}
+                height={36}
+              />
             </div>
             <p className="text-gray-400 text-lg leading-relaxed max-w-md">
               NFC Group Indonesia berkomitmen memberikan akses terhadap alas

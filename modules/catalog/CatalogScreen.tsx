@@ -6,28 +6,28 @@ export const PRODUCTS: Product[] = [
     name: "Air Max 270",
     brand: "Nike",
     price: "Rp 2.499.000",
-    image: "https://picsum.photos/seed/shoe1/400/400",
+    image: "/assets/images/nike.webp",
   },
   {
     id: 2,
     name: "Ultraboost Light",
     brand: "Adidas",
     price: "Rp 3.199.000",
-    image: "https://picsum.photos/seed/shoe2/400/400",
+    image: "/assets/images/adidas.webp",
   },
   {
     id: 3,
     name: "Clyde Base",
     brand: "Puma",
     price: "Rp 1.599.000",
-    image: "https://picsum.photos/seed/shoe3/400/400",
+    image: "/assets/images/puma.webp",
   },
   {
     id: 4,
     name: "Mexico 66",
     brand: "Onitsuka Tiger",
     price: "Rp 1.999.000",
-    image: "https://picsum.photos/seed/shoe4/400/400",
+    image: "/assets/images/new-balance.webp",
   },
 ];
 
