@@ -9,6 +9,7 @@ interface menuProps {
 
 const Navbar = () => {
   const menuItems: menuProps[] = [
+    { name: "Home", link: "/" },
     { name: "About", link: "/about" },
     { name: "Catalog", link: "/catalog" },
     { name: "Contact Us", link: "/contact" },
