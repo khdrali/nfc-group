@@ -1,3 +1,4 @@
+import CardProduct from "@/common/components/product/cardProduct";
 import { Product } from "./models/responses";
 
 export const PRODUCTS: Product[] = [
@@ -67,6 +68,7 @@ const CatalogScreen = () => {
             </div>
           ))}
         </div>
+        {/* <CardProduct /> */}
       </div>
     </div>
   );

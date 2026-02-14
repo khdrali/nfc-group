@@ -1,3 +1,5 @@
+import Timeline from "./component/Timeline";
+
 export default function AboutScreen() {
   return (
     <section className="max-w-6xl mx-auto px-6 py-20">
@@ -44,17 +46,17 @@ export default function AboutScreen() {
       </div>
 
       {/* TIMELINE TITLE */}
-      <div className="text-center mb-10">
+      {/* <div className="text-center mb-10">
         <h3 className="text-lg tracking-wide">
           4 Years of Turning Vision Into Growth Industries
         </h3>
-      </div>
+      </div> */}
 
       {/* TIMELINE */}
-      <div className="bg-[#1F3D36] rounded-2xl px-8 py-12 text-white">
-        <div className="grid md:grid-cols-4 gap-8 text-center text-sm">
-          {/* 2023 */}
-          <div className="hover:-translate-y-2 transition-transform">
+      {/* <div className="bg-[#1F3D36] rounded-2xl px-8 py-12 text-white">
+        <div className="grid md:grid-cols-4 gap-8 text-center text-sm"> */}
+      {/* 2023 */}
+      {/* <div className="hover:-translate-y-2 transition-transform">
             <svg
               className="w-14 h-14 mx-auto mb-4"
               fill="none"
@@ -66,10 +68,10 @@ export default function AboutScreen() {
             </svg>
             <p className="opacity-70">2023</p>
             <p className="mt-2">First Concept Launched</p>
-          </div>
+          </div> */}
 
-          {/* 2024 */}
-          <div className="hover:-translate-y-2 transition-transform">
+      {/* 2024 */}
+      {/* <div className="hover:-translate-y-2 transition-transform">
             <svg
               className="w-14 h-14 mx-auto mb-4"
               fill="none"
@@ -83,10 +85,10 @@ export default function AboutScreen() {
             </svg>
             <p className="opacity-70">2024</p>
             <p className="mt-2">Sales Network Expansion</p>
-          </div>
+          </div> */}
 
-          {/* 2025 */}
-          <div className="hover:-translate-y-2 transition-transform">
+      {/* 2025 */}
+      {/* <div className="hover:-translate-y-2 transition-transform">
             <svg
               className="w-14 h-14 mx-auto mb-4"
               fill="none"
@@ -99,10 +101,10 @@ export default function AboutScreen() {
             </svg>
             <p className="opacity-70">2025</p>
             <p className="mt-2">High Performance Record</p>
-          </div>
+          </div> */}
 
-          {/* 2026 */}
-          <div className="hover:-translate-y-2 transition-transform">
+      {/* 2026 */}
+      {/* <div className="hover:-translate-y-2 transition-transform">
             <svg
               className="w-14 h-14 mx-auto mb-4"
               fill="none"
@@ -117,7 +119,8 @@ export default function AboutScreen() {
             <p className="mt-2">Sustainable Growth</p>
           </div>
         </div>
-      </div>
+      </div> */}
+      <Timeline />
     </section>
   );
 }

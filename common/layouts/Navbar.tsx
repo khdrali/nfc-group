@@ -17,7 +17,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-[#2D4137] text-white py-4 sticky top-0 z-50 shadow-lg">
+    <nav className="bg-[#B64A26] text-white py-4 sticky top-0 z-50 shadow-lg">
       <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
         <Link href={"/"}>
           {/* NFC */}
