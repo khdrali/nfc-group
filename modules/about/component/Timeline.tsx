@@ -51,7 +51,15 @@ export default function Timeline() {
 
       {/* Timeline line */}
       <div className="relative flex items-center mb-6">
-        <div className="absolute left-0 right-0 h-2 bg-[#F9F9F9]"></div>
+        {/* Line */}
+        <div className="absolute left-0 right-0 h-[4px] bg-[#F9F9F9]"></div>
+
+        {/* Arrow */}
+        <div className="absolute right-2 translate-x-full">
+          <div className="w-0 h-0 border-t-8 border-b-8 border-l-[10px] border-t-transparent border-b-transparent border-l-[#F9F9F9]"></div>
+        </div>
+
+        {/* Years */}
         <div className="grid grid-cols-4 w-full text-center relative">
           {items.map((item, i) => (
             <div
