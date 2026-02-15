@@ -5,7 +5,7 @@ const Trust = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="/assets/images/background-Home_atas.webp"
+            src="/assets/images/background-Home_Bawah.webp"
             alt="background"
             className="w-full h-full object-cover"
           />
