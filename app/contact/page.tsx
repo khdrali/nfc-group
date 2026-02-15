@@ -2,25 +2,42 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-[#F9F7F7] py-16 px-4">
       <div className="max-w-3xl mx-auto text-center w-full">
-        {/* Header Text */}
-        <h1 className="text-5xl font-medium text-gray-800 mb-10 tracking-tight">
-          Contact US
-        </h1>
+        <div className="relative overflow-hidden rounded-3xl mb-6">
+          {/* Background Image */}
+          <div className="absolute inset-0">
+            <img
+              src="/assets/images/background-Contact_us.webp"
+              alt="Contact Background"
+              className="w-full h-full object-cover"
+            />
+          </div>
 
-        <div className="space-y-6 text-gray-700 text-lg leading-relaxed mb-12">
-          <p className="font-bold">
-            NFC Group Indonesia mengutamakan kesuksesan bisnis Anda.
-          </p>
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/50"></div>
 
-          <p>
-            Untuk pertanyaan lebih lanjut, Anda dapat mengunjungi situs web
-            resmi kami atau menghubungi kami melalui telepon maupun email.
-          </p>
+          {/* Content */}
+          <div className="relative z-10 px-8 py-12">
+            {/* Header Text */}
+            <h1 className="text-5xl font-medium text-[#FDF4E2] mb-5 tracking-tight">
+              Contact Us
+            </h1>
 
-          <p>
-            Kami berkomitmen untuk mendukung pertumbuhan bisnis Anda dengan
-            kualitas terbaik.
-          </p>
+            <div className="space-y-3 text-[#FDF4E2] text-lg leading-relaxed mb-6">
+              <p className="font-bold">
+                NFC Group Indonesia mengutamakan kesuksesan bisnis Anda.
+              </p>
+
+              <p>
+                Untuk pertanyaan lebih lanjut, Anda dapat mengunjungi situs web
+                resmi kami atau menghubungi kami melalui telepon maupun email.
+              </p>
+
+              <p>
+                Kami berkomitmen untuk mendukung pertumbuhan bisnis Anda dengan
+                kualitas terbaik.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Message/Form Box Placeholder */}

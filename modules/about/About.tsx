@@ -3,26 +3,44 @@ import Timeline from "./component/Timeline";
 export default function AboutScreen() {
   return (
     <section className="max-w-6xl mx-auto px-6 py-20">
-      {/* TITLE */}
-      <div className="text-center mb-8">
-        <h1 className="text-4xl font-semibold">About</h1>
-        <div className="w-28 h-[1.5px] bg-gray-500 mx-auto mt-4"></div>
-      </div>
+      <div className="relative w-full overflow-hidden mb-6">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="/assets/images/background-about.webp"
+            alt="About Background"
+            className="w-full h-full object-cover rounded-2xl"
+          />
+        </div>
 
-      {/* COMPANY OVERVIEW */}
-      <div className="mb-16 max-w-4xl mx-auto">
-        <h2 className="text-2xl mb-2">Company Overview</h2>
-        <p className="leading-relaxed ">
-          NFC Group Indonesia adalah satu-satunya distributor sepatu di
-          Indonesia yang dikelola dengan system manajemen professional, didukung
-          Quality Control terbaik, serta proses distribusi yang terfokus.
-        </p>
-        <p className="leading-relaxed">
-          Dengan Operasional yang efisien, NFC Memaksimalkan proses pelayanan
-          secara efektif, pengiriman tepat Waktu, serta produk-produk tetap,
-          lengkap dengan garansi resmi sebagai komitmen kecepatan layanan dan
-          kepercayaan customer.
-        </p>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/50 rounded-2xl"></div>
+
+        {/* Content */}
+        <div className="relative z-10 py-20 px-6">
+          {/* TITLE */}
+          <div className="text-center mb-8">
+            <h1 className="text-4xl text-[#FDF4E2] font-semibold">About</h1>
+            <div className="w-28 h-[1.5px] bg-[#FDF4E2] mx-auto mt-4"></div>
+          </div>
+
+          {/* COMPANY OVERVIEW */}
+          <div className="mb-16 max-w-4xl mx-auto">
+            <h2 className="text-2xl text-[#FDF4E2] mb-2">Company Overview</h2>
+            <p className="leading-relaxed text-[#FDF4E2]">
+              NFC Group Indonesia adalah satu-satunya distributor sepatu di
+              Indonesia yang dikelola dengan system manajemen professional,
+              didukung Quality Control terbaik, serta proses distribusi yang
+              terfokus.
+            </p>
+            <p className="leading-relaxed text-[#FDF4E2]">
+              Dengan Operasional yang efisien, NFC Memaksimalkan proses
+              pelayanan secara efektif, pengiriman tepat Waktu, serta
+              produk-produk tetap, lengkap dengan garansi resmi sebagai komitmen
+              kecepatan layanan dan kepercayaan customer.
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* VISION & MISSION */}
