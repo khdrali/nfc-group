@@ -6,25 +6,25 @@ export default function Timeline() {
       year: "2023",
       title: "First Concept Launched",
       desc: "NFC Group Indonesia resmi memulai operasional bisnis.",
-      icon: "/assets/images/About_1.webp",
+      icon: "/assets/logo/transparent-image-1.png",
     },
     {
       year: "2024",
       title: "Sales Network Expansion",
       desc: "Memperluas jaringan distribusi di berbagai kota besar Indonesia.",
-      icon: "/assets/images/About_2.webp",
+      icon: "/assets/images/About_3.webp",
     },
     {
       year: "2025",
       title: "High Performance Achievement",
       desc: "Mencapai performa distribusi dan pertumbuhan penjualan terbaik.",
-      icon: "/assets/images/About_3.webp",
+      icon: "/assets/images/About_4.webp",
     },
     {
       year: "2026",
       title: "Sustainable Growth Expansion",
       desc: "Ekspansi berkelanjutan dan penguatan posisi NFC Group Indonesia",
-      icon: "/assets/images/About_4.webp",
+      icon: "/assets/images/About_2.webp",
     },
   ];
 
@@ -43,6 +43,7 @@ export default function Timeline() {
                 alt={item?.title}
                 width={100}
                 height={100}
+                className="aspect-square object-cover"
               />
             </div>
           </div>

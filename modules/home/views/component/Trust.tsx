@@ -8,13 +8,9 @@ const Trust = () => {
             NFC Group Indonesia
           </h3>
           <p className="text-lg text-gray-600 font-medium leading-relaxed">
-            NFC Group Indonesia telah dipercaya
-            <br />
-            oleh berbagai pelanggan berkat komitmen
-            <br />
-            terhadap layanan yang konsisten,
-            <br />
-            akurat, dan terpercaya.
+            NFC Group Indonesia telah dipercaya oleh <br /> berbagai pelanggan
+            berkat komitmen terhadap <br /> layanan yang konsisten, akurat, dan
+            terpercaya.
           </p>
         </div>
 
@@ -23,50 +19,68 @@ const Trust = () => {
 
         {/* Right Content: Stats */}
         <div className="flex-1 w-full space-y-10">
+          {/* ITEM 1 */}
           <div className="flex items-center gap-6">
-            <div className="text-[#2D3E35] shrink-0">
-              <svg
-                className="w-10 h-10"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" />
-              </svg>
+            {/* Icon wrapper */}
+            <div className="relative flex flex-col items-center">
+              {/* dashed line */}
+              <div className="absolute top-10 bottom-[-40px] w-px border-l-2 border-dashed border-[#2D3E35]"></div>
+
+              <div className="text-[#2D3E35] shrink-0">
+                <svg
+                  className="w-10 h-10"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" />
+                </svg>
+              </div>
             </div>
+
             <span className="text-lg font-bold text-[#333]">
               100% Jaminan Kualitas Terbaik
             </span>
           </div>
 
+          {/* ITEM 2 */}
           <div className="flex items-center gap-6">
-            <div className="text-[#2D3E35] shrink-0">
-              <svg
-                className="w-10 h-10"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-              >
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
+            <div className="relative flex flex-col items-center">
+              <div className="absolute top-10 bottom-[-40px] w-px border-l-2 border-dashed border-[#2D3E35]"></div>
+
+              <div className="text-[#2D3E35] shrink-0">
+                <svg
+                  className="w-10 h-10"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
             </div>
+
             <span className="text-lg font-bold text-[#333]">
               100+ Perusahaan dengan jangkauan operasional di seluruh kota
               Indonesia
             </span>
           </div>
 
+          {/* ITEM 3 (tanpa garis bawah) */}
           <div className="flex items-center gap-6">
-            <div className="text-[#2D3E35] shrink-0">
-              <svg
-                className="w-10 h-10"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" />
-              </svg>
+            <div className="flex flex-col items-center">
+              <div className="text-[#2D3E35] shrink-0">
+                <svg
+                  className="w-10 h-10"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" />
+                </svg>
+              </div>
             </div>
+
             <span className="text-lg font-bold text-[#333]">
               100% Rasio Kepuasan Pelanggan
             </span>

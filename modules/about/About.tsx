@@ -4,15 +4,15 @@ export default function AboutScreen() {
   return (
     <section className="max-w-6xl mx-auto px-6 py-20">
       {/* TITLE */}
-      <div className="text-center mb-14">
+      <div className="text-center mb-8">
         <h1 className="text-4xl font-semibold">About</h1>
         <div className="w-28 h-[1.5px] bg-gray-500 mx-auto mt-4"></div>
       </div>
 
       {/* COMPANY OVERVIEW */}
       <div className="mb-16 max-w-4xl mx-auto">
-        <h2 className="text-2xl mb-5">Company Overview</h2>
-        <p className="leading-relaxed mb-4">
+        <h2 className="text-2xl mb-2">Company Overview</h2>
+        <p className="leading-relaxed ">
           NFC Group Indonesia adalah satu-satunya distributor sepatu di
           Indonesia yang dikelola dengan system manajemen professional, didukung
           Quality Control terbaik, serta proses distribusi yang terfokus.
