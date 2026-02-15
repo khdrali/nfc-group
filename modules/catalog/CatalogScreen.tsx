@@ -1,5 +1,15 @@
 import CardProduct from "@/common/components/product/cardProduct";
-import { Product } from "./models/responses";
+import { Product } from "./models/responses/responses";
+import SliderProduct from "./component/SliderProduct";
+import {
+  AdidasProduct,
+  favoriteProduct,
+  mustProduct,
+  NewBalanceProduct,
+  NikeProduct,
+  OnitsukaTigerProduct,
+  PumaProduct,
+} from "./models/data/dummyData";
 
 export const PRODUCTS: Product[] = [
   {
@@ -37,15 +47,12 @@ const CatalogScreen = () => {
     <div className="py-20 bg-white ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-12">
-          <h1 className="text-4xl font-extrabold text-gray-900 mb-2">
-            Produk Katalog
+          <h1 className="text-4xl text-center font-extrabold text-gray-900 mb-2">
+            Explore the Catalog
           </h1>
-          <p className="text-gray-600">
-            Jelajahi koleksi terbaru dari brand ternama.
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {PRODUCTS.map((product) => (
             <div key={product.id} className="group cursor-pointer">
               <div className="relative aspect-square overflow-hidden bg-gray-100 rounded-2xl mb-4">
@@ -67,8 +74,41 @@ const CatalogScreen = () => {
               <p className="text-red-600 font-bold">{product.price}</p>
             </div>
           ))}
-        </div>
+        </div> */}
         {/* <CardProduct /> */}
+        <div className="mb-14">
+          <SliderProduct
+            title="Our Favorite Product"
+            product={favoriteProduct}
+          />
+        </div>
+
+        <div className="mb-14">
+          <SliderProduct title="Must Have Product" product={mustProduct} />
+        </div>
+
+        <div className="mb-14">
+          <SliderProduct title="Nike" product={NikeProduct} />
+        </div>
+
+        <div className="mb-14">
+          <SliderProduct title="Adidas" product={AdidasProduct} />
+        </div>
+
+        <div className="mb-14">
+          <SliderProduct title="New Balance" product={NewBalanceProduct} />
+        </div>
+
+        <div className="mb-14">
+          <SliderProduct
+            title="Onitsuka Tiger"
+            product={OnitsukaTigerProduct}
+          />
+        </div>
+
+        <div className="mb-14">
+          <SliderProduct title="Puma" product={PumaProduct} />
+        </div>
       </div>
     </div>
   );
