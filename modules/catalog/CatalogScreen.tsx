@@ -10,6 +10,7 @@ import {
   OnitsukaTigerProduct,
   PumaProduct,
 } from "./models/data/dummyData";
+import ListProduct from "./component/ListProduct";
 
 export const PRODUCTS: Product[] = [
   {
@@ -45,7 +46,7 @@ export const PRODUCTS: Product[] = [
 const CatalogScreen = () => {
   return (
     <div className="py-20 bg-white ">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className=" px-4 sm:px-6 lg:px-8">
         <div className="mb-12">
           <h1 className="text-4xl text-center font-extrabold text-gray-900 mb-2">
             Explore the Catalog
@@ -76,7 +77,7 @@ const CatalogScreen = () => {
           ))}
         </div> */}
         {/* <CardProduct /> */}
-        <div className="mb-14">
+        {/* <div className="mb-14">
           <SliderProduct
             title="Our Favorite Product"
             product={favoriteProduct}
@@ -108,7 +109,9 @@ const CatalogScreen = () => {
 
         <div className="mb-14">
           <SliderProduct title="Puma" product={PumaProduct} />
-        </div>
+        </div> */}
+
+        <ListProduct />
       </div>
     </div>
   );

@@ -13,4 +13,5 @@ export interface CardProductType {
   name: string,
   brand: string,
   price: string,
+  isBestSeller?:boolean
 }

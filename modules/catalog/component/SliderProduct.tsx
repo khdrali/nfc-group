@@ -114,6 +114,8 @@ const SliderProduct = ({ product, title }: SliderProductProps) => {
               thumbnail={product.thumbnail}
               alt={product.name}
               color={product?.color ?? []}
+              name={product?.name}
+              hoverImg="/assets/product/Favorite Product/Nike/Nike Air Force 1 All White/IMG_1553 2.png"
             />
           </SwiperSlide>
         ))}
