@@ -16,7 +16,7 @@ const Brands: React.FC = () => {
     {
       name: "NEW BALANCE",
       href: "#",
-      logo: "/assets/logo/brands/logo-nike.webp",
+      logo: "/assets/logo/brands/new-balance-logo.webp",
     },
     { name: "HOKA", href: "#", logo: "/assets/logo/brands/logo-hoka.webp" },
     { name: "ON", href: "#", logo: "/assets/logo/brands/logo-on.webp" },
@@ -31,10 +31,10 @@ const Brands: React.FC = () => {
           <h2 className="text-4xl font-extrabold text-[#333] tracking-tight">
             Our Brand Partners
           </h2>
-          <p className="text-gray-500 text-lg max-w-2xl mx-auto font-medium">
+          {/* <p className="text-gray-500 text-lg max-w-2xl mx-auto font-medium">
             Brand global yang telah bekerja sama dan mempercayai NFC Group
             Indonesia
-          </p>
+          </p> */}
         </div>
 
         {/* Brand Grid */}
@@ -51,7 +51,7 @@ const Brands: React.FC = () => {
                 width={140}
                 height={140}
               />
-              <span className="brand-partner-name">{brand.name}</span>
+              {/* <span className="brand-partner-name">{brand.name}</span> */}
             </a>
           ))}
         </div>

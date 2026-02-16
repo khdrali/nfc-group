@@ -61,8 +61,8 @@ body {
 .brand-partner-card {
     background-color: #B64A26;
     color: var(--white);
-    padding: 35px 20px;
     border-radius: 24px;
+    height: 163px;
     text-decoration: none;
     display: flex;
     flex-direction: column;
@@ -100,7 +100,7 @@ body {
 /* Responsive Overrides */
 @media (max-width: 640px) {
     .brand-partner-card {
-        padding: 25px 15px;
+        height: 120px
     }
     .brand-partner-name {
         font-size: 1rem;

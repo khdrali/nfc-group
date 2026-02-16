@@ -75,7 +75,7 @@ const Trust = () => {
               </div>
 
               <span className="text-lg font-bold text-[#FDF4E2]">
-                100+ Perusahaan dengan jangkauan operasional di seluruh kota
+                1000+ Perusahaan dengan jangkauan operasional di seluruh kota
                 Indonesia
               </span>
             </div>
