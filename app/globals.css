@@ -121,3 +121,36 @@ body {
 .animate-fadeIn {
   animation: fadeIn 0.4s ease forwards;
 }
+
+/* === HERO SWIPER PAGINATION === */
+/* FORCE override default swiper */
+.hero-swiper.swiper {
+  position: relative;
+}
+
+/* Container pagination */
+.hero-swiper .swiper-pagination {
+  position: absolute !important;
+  right: 24px !important;
+  left: auto !important;
+  bottom: 24px !important;
+  width: auto !important;
+  display: flex;
+}
+
+/* Bullet default */
+.hero-swiper .swiper-pagination-bullet {
+  width: 22px;
+  height: 22px;
+  background: transparent;
+  border: 2px solid white;
+  opacity: 1;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+}
+
+/* Bullet active */
+.hero-swiper .swiper-pagination-bullet-active {
+  background: #2D4137;
+  border-color: #2D4137;
+}

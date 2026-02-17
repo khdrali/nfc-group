@@ -2,19 +2,19 @@ import Timeline from "./component/Timeline";
 
 export default function AboutScreen() {
   return (
-    <section className="max-w-6xl mx-auto px-6 py-20">
-      <div className="relative w-full overflow-hidden mb-6">
+    <section className="w-full pb-10 relative">
+      <div className="relative w-full h-[70vh] overflow-hidden mb-6">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
             src="/assets/images/background-about.webp"
             alt="About Background"
-            className="w-full h-full object-cover rounded-2xl"
+            className="w-full h-full object-cover"
           />
         </div>
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/50 rounded-2xl"></div>
+        <div className="absolute inset-0 bg-black/50"></div>
 
         {/* Content */}
         <div className="relative z-10 py-20 px-6">
@@ -44,7 +44,7 @@ export default function AboutScreen() {
       </div>
 
       {/* VISION & MISSION */}
-      <div className="grid md:grid-cols-2 gap-10 mb-24">
+      <div className="grid md:grid-cols-2 gap-10 mb-24 w-full max-w-6xl mx-auto">
         <div className="bg-white rounded-2xl p-10 shadow-sm hover:shadow-md transition">
           <h3 className="text-2xl mb-4">Vision</h3>
           <p>
@@ -62,82 +62,6 @@ export default function AboutScreen() {
           </ul>
         </div>
       </div>
-
-      {/* TIMELINE TITLE */}
-      {/* <div className="text-center mb-10">
-        <h3 className="text-lg tracking-wide">
-          4 Years of Turning Vision Into Growth Industries
-        </h3>
-      </div> */}
-
-      {/* TIMELINE */}
-      {/* <div className="bg-[#1F3D36] rounded-2xl px-8 py-12 text-white">
-        <div className="grid md:grid-cols-4 gap-8 text-center text-sm"> */}
-      {/* 2023 */}
-      {/* <div className="hover:-translate-y-2 transition-transform">
-            <svg
-              className="w-14 h-14 mx-auto mb-4"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              viewBox="0 0 24 24"
-            >
-              <path d="M3 21h18M4 21V7l8-4 8 4v14" />
-            </svg>
-            <p className="opacity-70">2023</p>
-            <p className="mt-2">First Concept Launched</p>
-          </div> */}
-
-      {/* 2024 */}
-      {/* <div className="hover:-translate-y-2 transition-transform">
-            <svg
-              className="w-14 h-14 mx-auto mb-4"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              viewBox="0 0 24 24"
-            >
-              <path d="M17 20h5v-2a4 4 0 00-4-4h-1" />
-              <path d="M7 20H2v-2a4 4 0 014-4h1" />
-              <circle cx="12" cy="7" r="4" />
-            </svg>
-            <p className="opacity-70">2024</p>
-            <p className="mt-2">Sales Network Expansion</p>
-          </div> */}
-
-      {/* 2025 */}
-      {/* <div className="hover:-translate-y-2 transition-transform">
-            <svg
-              className="w-14 h-14 mx-auto mb-4"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              viewBox="0 0 24 24"
-            >
-              <path d="M3 3v18h18" />
-              <path d="M7 15l4-4 3 3 5-6" />
-            </svg>
-            <p className="opacity-70">2025</p>
-            <p className="mt-2">High Performance Record</p>
-          </div> */}
-
-      {/* 2026 */}
-      {/* <div className="hover:-translate-y-2 transition-transform">
-            <svg
-              className="w-14 h-14 mx-auto mb-4"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              viewBox="0 0 24 24"
-            >
-              <circle cx="12" cy="12" r="10" />
-              <path d="M2 12h20M12 2a15 15 0 010 20" />
-            </svg>
-            <p className="opacity-70">2026</p>
-            <p className="mt-2">Sustainable Growth</p>
-          </div>
-        </div>
-      </div> */}
       <Timeline />
     </section>
   );

@@ -10,7 +10,7 @@ const Footer = () => {
               <img
                 src="/assets/logo/transparent-image.png"
                 alt="Logo"
-                width={55}
+                width={200}
                 height={36}
               />
             </div>

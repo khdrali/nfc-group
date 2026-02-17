@@ -29,7 +29,7 @@ export default function Timeline() {
   ];
 
   return (
-    <div className="w-full bg-[#2D4137] rounded-xl py-6 text-white">
+    <div className="w-full max-w-6xl mx-auto bg-[#2D4137] rounded-xl py-6 text-white">
       {/* Top icons */}
       <div className="grid grid-cols-4 gap-6 text-center mb-4">
         {items.map((item, i) => (
