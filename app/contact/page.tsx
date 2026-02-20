@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const Contact = () => {
   return (
     <div className="min-h-screen bg-[#F9F7F7] w-full">
@@ -89,15 +91,15 @@ const Contact = () => {
 
                 {/* Phone */}
                 <div className="flex items-center space-x-6">
-                  <div className="w-16 h-16 bg-white flex items-center justify-center rounded-sm">
+                  <div className="w-16 h-12 border-2 border-white flex items-center justify-center rounded-sm">
                     {/* icon */}
                     <svg
-                      className="w-8 h-8 text-[#2D3E35]"
-                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
+                      fill="white"
+                      className="w-6 h-6"
                     >
-                      {" "}
-                      <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24..." />{" "}
+                      <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z" />
                     </svg>
                   </div>
                   <span className="text-xl font-medium leading-tight">
