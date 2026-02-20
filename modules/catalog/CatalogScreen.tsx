@@ -1,117 +1,60 @@
-import CardProduct from "@/common/components/product/cardProduct";
-import { Product } from "./models/responses/responses";
-import SliderProduct from "./component/SliderProduct";
-import {
-  AdidasProduct,
-  favoriteProduct,
-  mustProduct,
-  NewBalanceProduct,
-  NikeProduct,
-  OnitsukaTigerProduct,
-  PumaProduct,
-} from "./models/data/dummyData";
+"use client";
+
+import Image from "next/image";
+import { useState } from "react";
 import ListProduct from "./component/ListProduct";
 
-export const PRODUCTS: Product[] = [
-  {
-    id: 1,
-    name: "Air Max 270",
-    brand: "Nike",
-    price: "Rp 2.499.000",
-    image: "/assets/images/nike.webp",
-  },
-  {
-    id: 2,
-    name: "Ultraboost Light",
-    brand: "Adidas",
-    price: "Rp 3.199.000",
-    image: "/assets/images/adidas.webp",
-  },
-  {
-    id: 3,
-    name: "Clyde Base",
-    brand: "Puma",
-    price: "Rp 1.599.000",
-    image: "/assets/images/puma.webp",
-  },
-  {
-    id: 4,
-    name: "Mexico 66",
-    brand: "Onitsuka Tiger",
-    price: "Rp 1.999.000",
-    image: "/assets/images/new-balance.webp",
-  },
+const brands = [
+  { name: "Nike", logo: "/assets/logo/brands/logo-nike.webp" },
+  { name: "Adidas", logo: "/assets/logo/brands/logo-adidas.webp" },
+  { name: "Puma", logo: "/assets/logo/brands/logo-puma.webp" },
+  { name: "Onitsuka Tiger", logo: "/assets/logo/brands/logo-oj.webp" },
+  { name: "New Balance", logo: "/assets/logo/brands/new-balance-logo.webp" },
+  { name: "Hoka", logo: "/assets/logo/brands/logo-hoka.webp" },
+  { name: "On", logo: "/assets/logo/brands/logo-on.webp" },
+  { name: "Asics", logo: "/assets/logo/brands/logo-asics.webp" },
 ];
 
 const CatalogScreen = () => {
+  const [activeBrand, setActiveBrand] = useState("ALL");
+
   return (
-    <div className="py-20 bg-white ">
-      <div className=" px-4 sm:px-6 lg:px-8">
+    <div className="py-20 bg-white">
+      <div className="px-4 sm:px-6 lg:px-8">
+        {/* Title */}
         <div className="mb-12">
           <h1 className="text-4xl text-center font-extrabold text-gray-900 mb-2">
             Explore the Catalog
           </h1>
         </div>
 
-        {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {PRODUCTS.map((product) => (
-            <div key={product.id} className="group cursor-pointer">
-              <div className="relative aspect-square overflow-hidden bg-gray-100 rounded-2xl mb-4">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
-                  <button className="bg-red-600 text-white px-6 py-2 rounded-full font-bold shadow-lg">
-                    Detail
-                  </button>
-                </div>
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 group-hover:text-red-600 transition-colors">
-                {product.name}
-              </h3>
-              <p className="text-sm text-gray-500 mb-1">{product.brand}</p>
-              <p className="text-red-600 font-bold">{product.price}</p>
-            </div>
+        {/* 🔹 Brand Filter */}
+        <div className="flex gap-4 md:gap-6 overflow-x-auto lg:grid lg:grid-cols-8 lg:overflow-visible no-scrollbar">
+          {brands.map((brand) => (
+            <button
+              key={brand.name}
+              onClick={() => setActiveBrand(brand.name)}
+              className={`rounded-2xl flex items-center justify-center
+                h-24 min-w-30 shrink-0 transition-all duration-300 cursor-pointer
+                ${
+                  activeBrand === brand.name
+                    ? "bg-[#9E3F20] scale-105"
+                    : "bg-[#B64A26] hover:bg-[#9E3F20]"
+                } text-white`}
+            >
+              <Image
+                src={brand.logo}
+                alt={brand.name}
+                width={120}
+                height={60}
+                className="object-contain max-h-16 w-auto"
+              />
+            </button>
           ))}
-        </div> */}
-        {/* <CardProduct /> */}
-        {/* <div className="mb-14">
-          <SliderProduct
-            title="Our Favorite Product"
-            product={favoriteProduct}
-          />
         </div>
 
-        <div className="mb-14">
-          <SliderProduct title="Must Have Product" product={mustProduct} />
-        </div>
-
-        <div className="mb-14">
-          <SliderProduct title="Nike" product={NikeProduct} />
-        </div>
-
-        <div className="mb-14">
-          <SliderProduct title="Adidas" product={AdidasProduct} />
-        </div>
-
-        <div className="mb-14">
-          <SliderProduct title="New Balance" product={NewBalanceProduct} />
-        </div>
-
-        <div className="mb-14">
-          <SliderProduct
-            title="Onitsuka Tiger"
-            product={OnitsukaTigerProduct}
-          />
-        </div>
-
-        <div className="mb-14">
-          <SliderProduct title="Puma" product={PumaProduct} />
-        </div> */}
-
-        <ListProduct />
+        {/* 🔹 Product List */}
+        <ListProduct activeBrand={activeBrand} onResetBrand={() => setActiveBrand("ALL")}/>
       </div>
     </div>
   );

@@ -24,7 +24,7 @@ const Brands: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 px-6 bg-[#FDFBF7]">
+    <section className="px-6 bg-[#FDFBF7]">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16 space-y-4">
@@ -38,20 +38,20 @@ const Brands: React.FC = () => {
         </div>
 
         {/* Brand Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="flex gap-6 md:gap-8 overflow-x-auto lg:grid lg:grid-cols-4 lg:overflow-visible no-scrollbar">
           {brands.map((brand) => (
             <a
               key={brand.name}
               href={brand.href}
-              className="brand-partner-card"
+              className="brand-partner-card shrink-0 w-40 sm:w-44 md:w-48 lg:w-auto"
             >
               <Image
                 src={brand?.logo}
                 alt={brand?.name}
                 width={140}
                 height={140}
+                className="mx-auto"
               />
-              {/* <span className="brand-partner-name">{brand.name}</span> */}
             </a>
           ))}
         </div>

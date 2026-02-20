@@ -1,17 +1,29 @@
 "use client";
 
 import CardProduct from "@/common/components/product/cardProduct";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Products } from "../models/data/dummyData";
 
 const filters = ["ALL", "NEW ARRIVALS", "BEST SELLING"];
 const ITEMS_PER_LOAD = 20;
+const NEW_ARRIVALS_INITIAL = 20;
 
-const ListProduct = () => {
+interface ListProductProps {
+  activeBrand?: string;
+  onResetBrand?: () => void;
+}
+
+const ListProduct: React.FC<ListProductProps> = ({
+  activeBrand = "ALL",
+  onResetBrand,
+}) => {
   const [active, setActive] = useState("ALL");
   const [query, setQuery] = useState("");
   const [debouncedQuery, setDebouncedQuery] = useState("");
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_LOAD);
+  // 🆕 Batas tampil untuk NEW ARRIVALS, bisa bertambah saat scroll
+  const [newArrivalsLimit, setNewArrivalsLimit] =
+    useState(NEW_ARRIVALS_INITIAL);
   const [loading, setLoading] = useState(false);
 
   // 🔎 Debounce search
@@ -19,34 +31,90 @@ const ListProduct = () => {
     const timer = setTimeout(() => {
       setDebouncedQuery(query);
     }, 300);
-
     return () => clearTimeout(timer);
   }, [query]);
 
-  // ✅ Reset visible items saat filter/search berubah
+  // ✅ Reset visible items & newArrivalsLimit saat filter/search/brand berubah
   useEffect(() => {
     setVisibleCount(ITEMS_PER_LOAD);
-  }, [active, debouncedQuery]);
+    setNewArrivalsLimit(NEW_ARRIVALS_INITIAL);
+  }, [active, debouncedQuery, activeBrand]);
 
-  // 🔎 Filter + Search logic
-  const filteredProducts = Products.filter((p) => {
-    const matchSearch = p.name
-      .toLowerCase()
-      .includes(debouncedQuery.toLowerCase().trim());
+  // ✅ Cek apakah ada filter aktif
+  const isFilterActive =
+    active !== "ALL" || query.trim() !== "" || activeBrand !== "ALL";
 
-    if (active === "BEST SELLING") {
-      return matchSearch && p.isBestSeller;
-    }
+  // 🔎 Filter + Search + Brand logic
+  const filteredProducts = useMemo(() => {
+    // Step 1: filter berdasarkan search & brand dulu
+    const baseFiltered = Products.filter((p) => {
+      const matchSearch = p.name
+        .toLowerCase()
+        .includes(debouncedQuery.toLowerCase().trim());
+
+      const matchBrand =
+        activeBrand === "ALL" ||
+        (p.brand && p.brand.toUpperCase() === activeBrand.toUpperCase());
+
+      return matchSearch && matchBrand;
+    });
 
     if (active === "NEW ARRIVALS") {
-      // contoh: 20 produk terakhir dianggap terbaru
-      return matchSearch && p.id > Products.length - 20;
+      // Step 2: sort by ID descending (terbaru ke terlama)
+      const sorted = [...baseFiltered].sort((a, b) => b.id - a.id);
+      // Step 3: slice sesuai newArrivalsLimit (bertambah saat scroll)
+      return sorted.slice(0, newArrivalsLimit);
     }
 
-    return matchSearch; // ALL
-  });
+    if (active === "BEST SELLING") {
+      return baseFiltered.filter((p) => p.isBestSeller);
+    }
 
-  const visibleProducts = filteredProducts.slice(0, visibleCount);
+    return baseFiltered;
+  }, [active, debouncedQuery, activeBrand, newArrivalsLimit]);
+
+  // 🆕 Total produk yang tersedia untuk NEW ARRIVALS (tanpa limit)
+  const totalNewArrivals = useMemo(() => {
+    if (active !== "NEW ARRIVALS") return 0;
+    return Products.filter((p) => {
+      const matchSearch = p.name
+        .toLowerCase()
+        .includes(debouncedQuery.toLowerCase().trim());
+      const matchBrand =
+        activeBrand === "ALL" ||
+        (p.brand && p.brand.toUpperCase() === activeBrand.toUpperCase());
+      return matchSearch && matchBrand;
+    }).length;
+  }, [active, debouncedQuery, activeBrand]);
+
+  const visibleProducts =
+    active === "NEW ARRIVALS"
+      ? filteredProducts // sudah di-slice via newArrivalsLimit
+      : filteredProducts.slice(0, visibleCount);
+
+  const hasMore =
+    active === "NEW ARRIVALS"
+      ? newArrivalsLimit < totalNewArrivals
+      : visibleCount < filteredProducts.length;
+
+  // 🔥 Reset semua filter termasuk brand di parent
+  const handleResetFilter = () => {
+    if (!isFilterActive) return;
+    setActive("ALL");
+    setQuery("");
+    setDebouncedQuery("");
+    setVisibleCount(ITEMS_PER_LOAD);
+    setNewArrivalsLimit(NEW_ARRIVALS_INITIAL);
+    onResetBrand?.();
+  };
+
+  // ✅ Klik filter juga reset brand jika diperlukan
+  const handleFilterClick = (item: string) => {
+    setActive(item);
+    if (item === "ALL") {
+      onResetBrand?.();
+    }
+  };
 
   // 🔥 Infinite Scroll
   useEffect(() => {
@@ -55,16 +123,15 @@ const ListProduct = () => {
       const windowHeight = window.innerHeight;
       const fullHeight = document.documentElement.scrollHeight;
 
-      if (
-        scrollTop + windowHeight >= fullHeight - 200 &&
-        !loading &&
-        visibleCount < filteredProducts.length
-      ) {
+      if (scrollTop + windowHeight >= fullHeight - 200 && !loading && hasMore) {
         setLoading(true);
-
-        // simulasi API delay
         setTimeout(() => {
-          setVisibleCount((prev) => prev + ITEMS_PER_LOAD);
+          if (active === "NEW ARRIVALS") {
+            // Tambah limit NEW ARRIVALS
+            setNewArrivalsLimit((prev) => prev + NEW_ARRIVALS_INITIAL);
+          } else {
+            setVisibleCount((prev) => prev + ITEMS_PER_LOAD);
+          }
           setLoading(false);
         }, 600);
       }
@@ -72,12 +139,12 @@ const ListProduct = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [visibleCount, loading, filteredProducts.length]);
+  }, [loading, hasMore, active]);
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 mt-10">
       {/* 🔎 Search + Filter */}
-      <div className="bg-white p-4 rounded-xl flex items-center gap-4 w-full">
+      <div className="bg-white p-4 rounded-xl flex items-center gap-4 w-full flex-wrap">
         {/* Search */}
         <div className="flex items-center bg-white border border-gray-400 rounded-full px-4 py-2 w-64">
           <svg
@@ -103,20 +170,32 @@ const ListProduct = () => {
         </div>
 
         {/* Divider */}
-        <div className="h-8 w-px bg-gray-400" />
+        <div className="h-8 w-px bg-gray-400 hidden md:block" />
 
         {/* Filters */}
-        <div className="flex gap-3">
+        <div className="flex gap-3 flex-wrap">
+          <button
+            onClick={handleResetFilter}
+            disabled={!isFilterActive}
+            className={`w-36.5 h-9 rounded-full text-sm font-semibold transition
+              ${
+                isFilterActive
+                  ? "bg-[#D9D3C3] text-gray-700 hover:bg-[#cfc8b6] cursor-pointer"
+                  : "bg-[#ECEAE4] text-gray-400 cursor-not-allowed opacity-50"
+              }`}
+          >
+            Reset Filter
+          </button>
           {filters.map((item) => (
             <button
               key={item}
-              onClick={() => setActive(item)}
-              className={`px-5 py-2 rounded-full text-sm font-semibold transition
-              ${
-                active === item
-                  ? "bg-pink-600 text-white"
-                  : "bg-[#D9D3C3] text-gray-700 hover:bg-[#cfc8b6]"
-              }`}
+              onClick={() => handleFilterClick(item)}
+              className={`w-36.5 h-9 rounded-full cursor-pointer text-sm font-semibold transition
+                ${
+                  active === item
+                    ? "bg-pink-600 text-white"
+                    : "bg-[#D9D3C3] text-gray-700 hover:bg-[#cfc8b6]"
+                }`}
             >
               {item}
             </button>
@@ -153,15 +232,13 @@ const ListProduct = () => {
       </div>
 
       {/* 📊 Status */}
-      {!loading && filteredProducts.length === 0 && (
+      {!loading && visibleProducts.length === 0 && (
         <p className="text-center text-gray-400 py-6">No products found</p>
       )}
 
-      {!loading &&
-        filteredProducts.length > 0 &&
-        visibleCount >= filteredProducts.length && (
-          <p className="text-center text-gray-400 py-6">No more products</p>
-        )}
+      {!loading && visibleProducts.length > 0 && !hasMore && (
+        <p className="text-center text-gray-400 py-6">No more products</p>
+      )}
     </div>
   );
 };
