@@ -31,8 +31,8 @@ const Hero = () => {
   const nextRef = useRef<HTMLButtonElement>(null);
 
   return (
-    <section className="h-screen w-full relative">
-      <div className="relative h-screen w-full">
+    <section className="w-full relative">
+      <div className="relative h-[65vh] w-full">
         {/* Background */}
         <Image
           src="/assets/images/background-Home_atas.webp"
@@ -47,7 +47,7 @@ const Hero = () => {
 
         {/* Content */}
         <div className="relative z-10 h-full flex items-center px-6 md:px-16">
-          <div className="w-full flex flex-col md:flex-row items-center gap-12">
+          <div className="w-full flex flex-col max-w-6xl mx-auto mb-24 md:flex-row items-center gap-12">
             {/* LEFT */}
             <div className="flex-1 text-center md:text-left space-y-6">
               <h1 className="text-4xl md:text-6xl font-extrabold text-[#FDF4E2] leading-tight">

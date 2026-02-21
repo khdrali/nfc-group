@@ -47,11 +47,8 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* 🔹 MESSAGE BOX */}
-        <div className="bg-white border border-gray-200  shadow-sm h-64 mb-12 w-full max-w-6xl mx-auto" />
-
         {/* 🔹 CONTACT CARD */}
-        <div className="relative w-full flex items-center justify-center mb-6 h-[50vh] overflow-hidden shadow-2xl">
+        <div className="relative w-full flex flex-col items-center justify-center mb-10 h-[70vh] py-6 px-6 overflow-hidden shadow-2xl">
           {/* Background Image */}
           <img
             src="/assets/images/background-contact-us-bawah.webp"
@@ -61,6 +58,8 @@ const Contact = () => {
 
           {/* Overlay */}
           <div className="absolute inset-0 bg-[#2D3E35]/80"></div>
+          {/* 🔹 MESSAGE BOX */}
+          <div className="bg-white z-10 border border-gray-200  shadow-sm h-64 mb-12 w-full" />
 
           {/* Content */}
           <div className="relative flex justify-center items-center max-w-6xl mx-auto p-10 md:p-14 text-white">

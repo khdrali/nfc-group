@@ -1,6 +1,6 @@
 const Trust = () => {
   return (
-    <section className="w-full">
+    <section className="w-full  mb-10">
       <div className="relative w-full min-h-[60vh] overflow-hidden shadow-sm border border-gray-100">
         {/* Background Image */}
         <div className="absolute inset-0">
@@ -16,7 +16,7 @@ const Trust = () => {
 
         {/* Content Wrapper (CENTERED) */}
         <div className="relative z-10 min-h-[60vh] flex items-center">
-          <div className="w-full px-6 md:px-16 flex flex-col md:flex-row items-center justify-center gap-12">
+          <div className="w-full px-6 md:px-16 flex max-w-6xl mx-auto flex-col md:flex-row items-center justify-center gap-12">
             {/* LEFT CONTENT */}
             <div className="flex-1 space-y-6 text-center md:text-left">
               <h3 className="text-3xl md:text-4xl font-extrabold text-[#FDF4E2]">

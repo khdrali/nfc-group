@@ -108,17 +108,23 @@ const SliderProduct = ({ product, title }: SliderProductProps) => {
           1280: { slidesPerView: 5 },
         }}
       >
-        {product.map((product) => (
-          <SwiperSlide key={product.id}>
-            <CardProduct
-              thumbnail={product.thumbnail}
-              alt={product.name}
-              color={product?.color ?? []}
-              name={product?.name}
-              hoverImg="/assets/product/Favorite Product/Nike/Nike Air Force 1 All White/IMG_1553 2.png"
-            />
-          </SwiperSlide>
-        ))}
+        {product && product.length > 0 ? (
+          product.map((product) => (
+            <SwiperSlide key={product.id}>
+              <CardProduct
+                thumbnail={product.thumbnail}
+                alt={product.name}
+                color={product?.color ?? []}
+                name={product?.name}
+                hoverImg="/assets/product/Favorite Product/Nike/Nike Air Force 1 All White/IMG_1553 2.png"
+              />
+            </SwiperSlide>
+          ))
+        ) : (
+          <div className="text-center text-[#292929] mt-4">
+            <p className="text-2xl font-semibold">No products available</p>
+          </div>
+        )}
       </Swiper>
     </div>
   );

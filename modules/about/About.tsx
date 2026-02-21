@@ -62,7 +62,7 @@ export default function AboutScreen() {
           </ul>
         </div>
       </div> */}
-      <div className="relative w-full h-[70vh] flex justify-center items-center overflow-hidden mb-6">
+      <div className="relative w-full h-[70vh] flex justify-center items-center overflow-hidden my-10">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img

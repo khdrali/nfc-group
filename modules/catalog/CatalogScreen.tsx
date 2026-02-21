@@ -3,6 +3,16 @@
 import Image from "next/image";
 import { useState } from "react";
 import ListProduct from "./component/ListProduct";
+import SliderProduct from "./component/SliderProduct";
+import {
+  AdidasProduct,
+  favoriteProduct,
+  mustProduct,
+  NewBalanceProduct,
+  NikeProduct,
+  OnitsukaTigerProduct,
+  PumaProduct,
+} from "./models/data/dummyData";
 
 const brands = [
   { name: "Nike", logo: "/assets/logo/brands/logo-nike.webp" },
@@ -29,7 +39,7 @@ const CatalogScreen = () => {
         </div>
 
         {/* 🔹 Brand Filter */}
-        <div className="flex gap-4 md:gap-6 overflow-x-auto lg:grid lg:grid-cols-8 lg:overflow-visible no-scrollbar">
+        {/* <div className="flex gap-4 md:gap-6 overflow-x-auto lg:grid lg:grid-cols-8 lg:overflow-visible no-scrollbar">
           {brands.map((brand) => (
             <button
               key={brand.name}
@@ -51,10 +61,56 @@ const CatalogScreen = () => {
               />
             </button>
           ))}
-        </div>
+        </div> */}
 
         {/* 🔹 Product List */}
-        <ListProduct activeBrand={activeBrand} onResetBrand={() => setActiveBrand("ALL")}/>
+        {/* <ListProduct activeBrand={activeBrand} onResetBrand={() => setActiveBrand("ALL")}/> */}
+
+        <div className="mt-10">
+          <SliderProduct
+            product={favoriteProduct}
+            title="Our Favorite Product"
+          />
+        </div>
+
+        <div className="mt-10">
+          <SliderProduct product={mustProduct} title="Must Have Product" />
+        </div>
+
+        <div className="mt-10">
+          <SliderProduct product={AdidasProduct} title="Adidas" />
+        </div>
+
+        <div className="mt-10">
+          <SliderProduct product={[]} title="Asics" />
+        </div>
+
+        <div className="mt-10">
+          <SliderProduct product={[]} title="Hoka" />
+        </div>
+
+        <div className="mt-10">
+          <SliderProduct product={NewBalanceProduct} title="New Balance" />
+        </div>
+
+        <div className="mt-10">
+          <SliderProduct product={NikeProduct} title="Nike" />
+        </div>
+
+        <div className="mt-10">
+          <SliderProduct product={[]} title="On" />
+        </div>
+
+        <div className="mt-10">
+          <SliderProduct
+            product={OnitsukaTigerProduct}
+            title="Onitsuka Tiger"
+          />
+        </div>
+
+        <div className="mt-10">
+          <SliderProduct product={PumaProduct} title="Puma" />
+        </div>
       </div>
     </div>
   );
