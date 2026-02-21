@@ -1,3 +1,4 @@
+import { TestimonialsData } from "@/modules/contact/models/dummyData";
 import Image from "next/image";
 
 const Contact = () => {
@@ -58,8 +59,25 @@ const Contact = () => {
 
           {/* Overlay */}
           <div className="absolute inset-0 bg-[#2D3E35]/80"></div>
+          <div className="z-10">
+            <p className="text-white text-4xl font-semibold">
+              Testimoni Pelanggan
+            </p>
+          </div>
           {/* 🔹 MESSAGE BOX */}
-          <div className="bg-white z-10 border border-gray-200  shadow-sm h-64 mb-12 w-full" />
+          <div className=" z-10 h-[50vh] mb-8 w-full flex justify-center items-center relative rounded-2xl gap-10">
+            {TestimonialsData.map((v, key) => (
+              <div key={key} className="w-[384px] h-64 relative">
+                <Image
+                  src={v?.image}
+                  alt={`Testimoni - ${key + 1}`}
+                  fill
+                  className="object-cover rounded-2xl"
+                  priority
+                />
+              </div>
+            ))}
+          </div>
 
           {/* Content */}
           <div className="relative flex justify-center items-center max-w-6xl mx-auto p-10 md:p-14 text-white">
